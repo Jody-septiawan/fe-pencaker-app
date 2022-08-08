@@ -137,7 +137,10 @@ useEffect(() => {
         </div>
     <Modal size='md'  show={applyShow} onHide={()=> setApply(false)} centered>
     <Modal.Body className="bg-Modal">
-    <div className="card-auth p-4">
+    <div className="card-auth p-4" style={{
+      maxHeight: 'calc(100vh - 210px)',
+      overflowY: 'auto'
+     }}>
     <h4 style={{color: 'white', textAlign: 'center', marginBottom: '10px'}}>Applied</h4>
     {record?.map((item, index) => (
     <Row key={index} className='Company-content' style={{ marginBottom: '10px'}}>
