@@ -25,7 +25,7 @@ export default function Profile() {
 
       useEffect(() => {
         profile()
-      }, [])
+      }, [data])
 
       const [form, setForm] = useState({
         image: '',
