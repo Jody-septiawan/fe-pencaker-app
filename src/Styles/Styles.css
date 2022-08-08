@@ -87,8 +87,8 @@
 }
 
 .ContainerContent{
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 80px;
+    padding-right: 80px;
     min-height: 90vh;
     width: 100;
     margin: 0;
