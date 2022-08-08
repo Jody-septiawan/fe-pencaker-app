@@ -112,7 +112,7 @@ useEffect(() => {
                                 <h4 style={{color: 'white'}}>{item.position}</h4>
                                 <p className={`tb-status-${item.job_status}`}>{item.job_status}</p>
                                 </Col>
-                            <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}} onClick={() => handleApplyed(item.id)}>
+                            <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}} onClick={() => handleApplyed(item?.id)}>
                                 <h4 style={{color: 'white'}}>{item.submitted}</h4>
                                 <p style={{color: 'rgba(108, 108, 108, 1)'}}>Submited</p>
                                 
