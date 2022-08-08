@@ -94,7 +94,7 @@ useEffect(() => {
                                      </div>
                                 <div className='salery'>
                                 <img src={Salary} alt='' style={{width:'10px'}}/>
-                                <p>{rupiahFormat.convert(item.salary_start)} - {rupiahFormat.convert(item.salary_end)}</p>
+                                <p>{rupiahFormat.convert(item.salary_end)}</p>
                                 </div>
                                 </div>
                             </Col>

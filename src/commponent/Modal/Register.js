@@ -145,8 +145,8 @@ export default function Register({ registerShow, setRegisterShow, registerHere }
                     </div>
                     <div className='CbRegister'>
                         <p>i Want</p>
-                        <input onChange={handleChange} type="checkbox" name='status' value='member'id="cb"/> <label for="cb">Find job</label><br />
-                        <input onChange={handleChange} type="checkbox" name='status' value='company' id="cbu"/> <label for="cbu">Hire people</label>
+                        <input onChange={handleChange} type="radio" name='status' value='member'id="cb"/> <label for="cb">Find job</label><br />
+                        <input onChange={handleChange} type="radio" name='status' value='company' id="cbu"/> <label for="cbu">Hire people</label>
                         </div>
                     <div className="d-grid gap-2 mt-3">
                         <button type="submit" className="btn">Register</button>
