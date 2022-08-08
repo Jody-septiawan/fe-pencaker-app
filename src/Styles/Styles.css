@@ -235,7 +235,7 @@
     }
     
 .tb-status-inactive{
-    color: yellow;
+    color: red;
     font-weight: bold;
 }
     
