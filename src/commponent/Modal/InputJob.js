@@ -41,7 +41,7 @@ export default function InputJob({ inputShow, setInputShow }) {
           // Insert data user to database
           const response = await API.post('/job', body, config);
           console.log(response);
-          setInputShow(false)
+          navigate('/company')
           // Notification
 
         } catch (error) {
