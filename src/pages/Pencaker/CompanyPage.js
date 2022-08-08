@@ -42,7 +42,7 @@ useEffect(() => {
     return () => {
       document.body.removeChild(scriptTag);
     };
-  }, [])
+  }, [data])
 
   const handleBuy = async (item) => {
     try {
