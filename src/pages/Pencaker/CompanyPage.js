@@ -142,10 +142,16 @@ useEffect(() => {
     {record?.map((item, index) => (
     <Row key={index} className='Company-content' style={{ marginBottom: '10px'}}>
         <Col>
-            <p style={{color: 'yellow', marginRight: '5px'}}>Name: </p>
+        <div>
+          <div>
+            <p style={{color: 'yellow', marginBottom: '0px'}}>Name: </p>
             <p style={{color: 'white', marginRight: '5px'}}>{item?.name}</p>
-            <p style={{color: 'yellow', marginRight: '5px'}}>email: </p>
+          </div>
+          <div>
+            <p style={{color: 'yellow', marginBottom: '0px'}}>email: </p>
             <p style={{color: 'white'}}>{item?.email}</p>
+          </div>
+        </div>
         </Col>
     </Row>
         ))}
