@@ -20,7 +20,7 @@ export default function Apply({applyShow, setApply, id}) {
 
     useEffect(() => {
         detailApply()
-    }, [])
+    }, [data])
     
   return (
     <Modal size='md'  show={applyShow} onHide={() => setApply(false)} centered>
