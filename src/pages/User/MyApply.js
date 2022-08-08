@@ -39,7 +39,7 @@ useEffect(() => {
                                 </Col>
                             <Col sm={6}  as={Link} style={{textDecoration: 'none'}}  to={`/user/job/${item.id}`}>
                                 <p className='card-title-text' style={{ marginTop: '5px', color: 'white', fontSize: '15px', fontWeight: 'bold' }}>{item.position}</p>
-                                <p className='Company'>{item.company.name}</p>
+                                <p className='Company'></p>
                                 <div style={{display: 'flex', marginTop: '10px'}}>
                                     <div className='location'>
                                     <img src={Location} alt='' style={{width:'10px'}}/>
