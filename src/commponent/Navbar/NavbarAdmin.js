@@ -22,7 +22,7 @@ export default function NavbarAdmin() {
     <div>
            <Navbar variant="light" expand="lg" className='navbg'>
             <Container>
-            <Navbar.Brand  style={{color: 'white', fontWeight: 'bold'}} as={Link} to="/user"><img src='' style={{ maxWidth: '200px' }} alt="" />PENCAKER</Navbar.Brand>
+            <Navbar.Brand  style={{color: 'white', fontWeight: 'bold'}} ><img src='' style={{ maxWidth: '200px' }} alt="" />PENCAKER</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav.Item style={{marginRight: '5px', color: 'white'}}>Welcome, Admin</Nav.Item>

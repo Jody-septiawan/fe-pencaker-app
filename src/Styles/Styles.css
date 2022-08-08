@@ -87,8 +87,8 @@
 }
 
 .ContainerContent{
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 5rem;
+    padding-right: 5rem;
     min-height: 90vh;
     width: 100;
     margin: 0;
@@ -216,7 +216,7 @@
     border: 1px solid white;
 }
 
-.tb-status-Active{
+.tb-status-succes{
     color: green;
     font-weight: bold;
     }
@@ -226,7 +226,22 @@
     font-weight: bold;
 }
     
-.tb-status-Close{
+.tb-status-close{
+    color: red;
+    font-weight: bold;
+}
+
+.tb-status-active{
+    color: green;
+    font-weight: bold;
+    }
+    
+.tb-status-inactive{
+    color: yellow;
+    font-weight: bold;
+}
+    
+.tb-status-close{
     color: red;
     font-weight: bold;
 }
@@ -335,4 +350,9 @@
     cursor: pointer;
     margin-top: 1rem;
     margin-bottom: 10px;
+}
+
+.inputSeacrh::placeholder{
+    text-align: center !important;
+    font-weight: bold;
 }

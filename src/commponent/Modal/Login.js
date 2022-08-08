@@ -68,25 +68,15 @@ export default function Login({ loginShow, setLoginShow, loginHere }) {
         setMessage(alert);
       }
     } catch (error) {
-      console.log(error);
-
-      if (error.message == 'Request failed with status code 403'){
+      console.log(error.message);
+      if (error.message === 'Request failed with status code 400'){
         const alertPassword = (
-          <Alert variant="danger" className="py-1">
-           Email Wrong
+          <Alert variant="danger" className="py-1" style={{fontSize: '15px', textAlign: 'center'}}>
+           Periksa Kembali Email atau Password Anda
           </Alert>
         );     
       setMessage(alertPassword);
        }
-
-         if (error.message == 'Request failed with status code 402'){
-          const alertPassword = (
-            <Alert variant="danger" className="py-1">
-              Password Wrong
-            </Alert>
-          );     
-         return setMessage(alertPassword);
-         }
     }
   });
 
@@ -100,6 +90,7 @@ export default function Login({ loginShow, setLoginShow, loginHere }) {
                     >
                     Login
                     </div>
+                    {message && message}
                     <form onSubmit={(e) => handleSubmit.mutate(e)}>
                     <div className="mt-3 form">
                         <input

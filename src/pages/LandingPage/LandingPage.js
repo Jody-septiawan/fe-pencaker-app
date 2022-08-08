@@ -81,7 +81,7 @@ useEffect(() => {
             <h1 >FIND AND BECOME A</h1> 
             <h1 style={{marginTop: '40px', color: 'rgba(255, 195, 0, 1)'}}>PROFESSIONAL</h1>
             <h1 style={{marginTop: '80px'}}> WITH PASSION</h1>
-            <input type="text" onChange={(e) => setSearch(e.target.value)} style={{borderRadius: '5px', width: '500px', height: '40px'}}></input>
+            <input className='inputSeacrh' type="text" placeholder='Find Your Dream Job' onChange={(e) => setSearch(e.target.value)} style={{borderRadius: '5px', width: '500px', height: '40px'}}></input>
         </div>
 
         <div className='ContainerContent'>

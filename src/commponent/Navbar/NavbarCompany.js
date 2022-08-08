@@ -1,14 +1,30 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { UserContext } from '../../context/userContext'
 import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import UserBlank from '../../assets/blank-profile.png'
 import { Link, useNavigate } from 'react-router-dom';
 import LogoutIcon from '../../assets/logout.svg'
+import { API } from '../../config/api';
 
 
 export default function NavbarCompany() {
 
     const [state, dispatch] = useContext(UserContext)
+    const [data, setData] = useState()
+
+    const profile = async () =>{
+        try {
+            const response = await API.get('/user')
+            setData(response.data)
+            console.log(response.data);
+        } catch (error) {
+            console.log(error)
+        }
+        }
+  
+        useEffect(() => {
+          profile()
+        }, [])
 
     let navigate = useNavigate()
   
@@ -31,7 +47,7 @@ export default function NavbarCompany() {
             <NavDropdown
                             title={<div>
                                 <img className="rounded-circle"
-                                    src={UserBlank}
+                                    src={data?.image ? data?.image : UserBlank}
                                     alt="User"
                                     style={{ width: '40px', marginTop: '5px'}}
                                 />

@@ -24,10 +24,9 @@ export default function CompanyPage() {
         }
         }
 
-
-  
 useEffect(() => {
-    myJobs()
+
+  myJobs()
 
      const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
     //change this according to your client-key
@@ -55,7 +54,7 @@ useEffect(() => {
       };
 
       const data = {
-        job_id: item.id,
+        jobId: item.id,
       };
 
       const body = JSON.stringify(data);
@@ -74,7 +73,7 @@ useEffect(() => {
         },
         onPending: function (result) {
           /* You may add your own implementation here */
-          navigate("/user/profile");
+          navigate("/company");
         },
         onError: function (result) {
           /* You may add your own implementation here */
@@ -104,19 +103,21 @@ useEffect(() => {
                         <Row style={{marginLeft: '5px', marginBottom: '2px'}}>
                              <Col sm={6}  style={{marginTop: '10px', marginBottom: '10px'}}>
                                 <h4 style={{color: 'white'}}>{item.position}</h4>
-                                <p className="tb-status-Active">{item.job_status}</p>
+                                <p className={`tb-status-${item.job_status}`}>{item.job_status}</p>
                                 </Col>
                             <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}}>
                                 <h4 style={{color: 'white'}}>{item.submitted}</h4>
                                 <p style={{color: 'rgba(108, 108, 108, 1)'}}>Submited</p>
                             </Col>
                             <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}}>
-                            <h4 style={{color: 'white'}}>{item.duration}</h4>
+                            <h4 style={{color: 'white', fontSize: '20px'}}>{item.duration}</h4>
                                 <p style={{color: 'rgba(108, 108, 108, 1)'}}>Ads Duration</p>
                             </Col>
                             <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}}>
+                            {item.job_status == 'active' ? (''):(
                                 <button onClick={() => handleBuy(item)} style={{borderRadius: '5px', backgroundColor: 'yellow'}}>Buy Active</button>
-                            </Col>
+                            )}
+                                </Col>
                         </Row>
             </Row>
         </Card>

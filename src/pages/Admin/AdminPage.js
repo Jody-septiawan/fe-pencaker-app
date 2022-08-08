@@ -2,16 +2,16 @@ import React, {useState, useEffect} from 'react';
 import { Row, Col, Card} from 'react-bootstrap';
 import '../../Styles/Styles.css'
 import { API } from '../../config/api';
+import rupiahFormat from 'rupiah-format';
 
 export default function AdminPage() {
   const [data, setData] = useState()
-  console.log(data);
+  const [total, setTotal] = useState([])
 
   const Transaction = async () =>{
     try {
         const response = await API.get('/transactions')
-        setData(response.data)
-        console.log(response.data.transactions);
+        setData(response.data.transactions)
     } catch (error) {
         console.log(error)
     }
@@ -19,7 +19,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     Transaction()
-  },[data]);
+  }, []);
 
   return (
     <div>
@@ -34,13 +34,12 @@ export default function AdminPage() {
                         <Row style={{marginLeft: '5px', marginBottom: '2px'}}>
                              <Col sm={8}  style={{marginTop: '10px', marginBottom: '10px'}}>
                                 <h4 style={{color: 'white'}}>{item?.position} - {item?.company?.name}</h4>
-                                <p className="tb-status-Active">Active</p>
+                              <p className={`tb-status-${item?.transaction.status}`}>{item?.transaction.status}</p>
                                 </Col>
                             <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}}>
                             </Col>
                             <Col sm={2}  style={{marginTop: '35px'}}>
-                            <h4 style={{color: 'white'}}>Rp.500.000</h4>
-                        
+                            <h4 style={{color: 'white'}}>{rupiahFormat.convert(item?.transaction.amount)}</h4>
                             </Col>
                         </Row>
             </Row>
