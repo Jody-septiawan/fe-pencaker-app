@@ -87,7 +87,7 @@ useEffect(() => {
         <div className='ContainerContent'>
             <Row>
             {data?.map((item, index) => (
-                <Col md={2} className="Content" key={index} onClick={() => setLoginShow(true)}>
+                <Col lg={2} md={3} className="Content" key={index} onClick={() => setLoginShow(true)}>
                         <Row style={{marginLeft: '5px', marginBottom: '2px'}}>
                              <Col sm={3}>
                                 <img src={item.company?.image ? item.company?.image : Logo} style={{width: '90px', height: '90px'}} alt=''/>
