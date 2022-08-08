@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Container, Nav, Navbar, Row, Col, Card} from 'react-bootstrap';
+import dateFormat from 'dateformat'
 import Logo from '../../assets/blank-profile.png'
 import '../../Styles/Styles.css'
 import Location from '../../assets/location.png'
@@ -52,7 +53,7 @@ useEffect(() => {
                                 </div>
                             </Col>
                             <Col sm={3} className='rightContent'>
-                                <p style={{marginTop: '10px', color: 'rgba(138, 138, 138, 1)', fontSize: '10px'}}>{item?.createdAt}</p>
+                                <p style={{marginTop: '10px', color: 'rgba(138, 138, 138, 1)', fontSize: '10px'}}>{dateFormat(item?.createdAt, 'dddd, d mmmm yyyy')}</p>
                             </Col>
                         </Row>
                 </Col>
