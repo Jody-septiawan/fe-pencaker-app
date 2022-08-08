@@ -56,7 +56,7 @@ export default function Login({ loginShow, setLoginShow, loginHere }) {
           navigate('/company');
         } else if(response.data.user.status === 'member') {
           navigate('/user');
-        } else {
+        } else if (response.data.user.status === 'admin') {
           navigate('/admin');
         }
 
