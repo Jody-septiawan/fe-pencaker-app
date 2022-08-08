@@ -1,25 +1,28 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { UserContext } from '../../context/userContext';
-import { Row, Col, Card, Alert} from 'react-bootstrap';
+import { Row, Col, Card, Modal} from 'react-bootstrap';
 import InputJob from '../../commponent/Modal/InputJob';
 import { useMutation, useQuery } from 'react-query';
 import '../../Styles/Styles.css'
 import { API } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
-import Apply from '../../commponent/Modal/Apply';
 
 export default function CompanyPage() {
     const [inputShow, setInputShow] = useState(false);
     const [data, setData] = useState()
     const [applyShow, setApply] = useState(false);
-    const [id, setId] = useState()
-
+    const [record, setRecord] = useState()
     let navigate = useNavigate();
 
-    const handleApplyed = (id) =>{
-      setId(id)
-      setApply(true)
-    }
+    const detailApply = async (id) =>{
+      try {
+          const response = await API.get(`/myjob/${id}`)
+          setRecord(response.data.applyers)
+          setApply(true)
+      } catch (error) {
+          console.log(error)
+      }
+  }
 
     const myJobs = async () =>{
         try {
@@ -112,7 +115,7 @@ useEffect(() => {
                                 <h4 style={{color: 'white'}}>{item.position}</h4>
                                 <p className={`tb-status-${item.job_status}`}>{item.job_status}</p>
                                 </Col>
-                            <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}} onClick={() => handleApplyed(item?.id)}>
+                            <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}} onClick={() => detailApply(item.id)}>
                                 <h4 style={{color: 'white'}}>{item.submitted}</h4>
                                 <p style={{color: 'rgba(108, 108, 108, 1)'}}>Submited</p>
                                 
@@ -131,9 +134,24 @@ useEffect(() => {
         </Card>
            ))}
         <InputJob inputShow={inputShow} setInputShow={setInputShow} />
-        <Apply applyShow={applyShow} setApply={setApply} id={id}/>
         </div>
-
+    <Modal size='md'  show={applyShow} onHide={()=> setApply(false)} centered>
+    <Modal.Body className="bg-Modal">
+    <div className="card-auth p-4">
+    <h4 style={{color: 'white', textAlign: 'center', marginBottom: '10px'}}>Applied</h4>
+    {record?.map((item, index) => (
+    <Row key={index} className='Company-content' style={{ marginBottom: '10px'}}>
+        <Col>
+            <p style={{color: 'yellow', marginRight: '5px'}}>Name: </p>
+            <p style={{color: 'white', marginRight: '5px'}}>{item?.name}</p>
+            <p style={{color: 'yellow', marginRight: '5px'}}>email: </p>
+            <p style={{color: 'white'}}>{item?.email}</p>
+        </Col>
+    </Row>
+        ))}
+    </div>
+    </Modal.Body>
+</Modal>
     </div>
   )
 }

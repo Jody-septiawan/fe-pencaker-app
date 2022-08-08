@@ -7,20 +7,21 @@ import '../../Styles/Styles.css'
 export default function Apply({applyShow, setApply, id}) {
     const [data, setData] = useState()
     console.log(data);
-    const detailApply = async () =>{
+    console.log(id);
+  
+
+    useEffect(() => { 
+        detailApply(id)
+    }, [data])
+
+     const detailApply = async (id) =>{
         try {
             const response = await API.get(`/myjob/${id}`)
             setData(response.data.applyers)
-            console.log(response);
         } catch (error) {
             console.log(error)
         }
         }
-
-
-    useEffect(() => {
-        detailApply()
-    }, [data])
     
   return (
     <Modal size='md'  show={applyShow} onHide={() => setApply(false)} centered>
