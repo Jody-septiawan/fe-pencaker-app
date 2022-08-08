@@ -10,6 +10,7 @@ export default function Profile() {
     const [show, setShow] = useState(false)
     const [state, dispatch] = useContext(UserContext);
     const [data, setData] = useState()
+    let navigate = useNavigate();
     console.log(data);
 
     const profile = async () =>{
@@ -61,7 +62,7 @@ export default function Profile() {
           const response = await API.put('/user', formData, config);
 
           console.log(response.data);
-          setShow(false)
+          navigate('/company/profile')
       } catch (error) {
           console.log(error);
       }
