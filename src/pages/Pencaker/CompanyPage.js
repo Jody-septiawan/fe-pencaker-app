@@ -12,8 +12,14 @@ export default function CompanyPage() {
     const [inputShow, setInputShow] = useState(false);
     const [data, setData] = useState()
     const [applyShow, setApply] = useState(false);
+    const [id, setId] = useState()
 
     let navigate = useNavigate();
+
+    const handleApplyed = (id) =>{
+      setId(id)
+      setApply(true)
+    }
 
     const myJobs = async () =>{
         try {
@@ -100,7 +106,7 @@ useEffect(() => {
         <button className='postAJob' onClick={() => setInputShow(true)}>Post a job</button>
         {data?.map((item, index) => (
         <Card className='mb-2 bg-content' key={index}>
-        <Row className='Company-content' onClick={() => setApply(true)}>
+        <Row className='Company-content' onClick={() => handleApplyed(item.id)}>
                         <Row style={{marginLeft: '5px', marginBottom: '2px'}}>
                              <Col sm={6}  style={{marginTop: '10px', marginBottom: '10px'}}>
                                 <h4 style={{color: 'white'}}>{item.position}</h4>
@@ -125,7 +131,7 @@ useEffect(() => {
         </Card>
            ))}
         <InputJob inputShow={inputShow} setInputShow={setInputShow} />
-        <Apply applyShow={applyShow} setApply={setApply} setId={item.id}/>
+        <Apply applyShow={applyShow} setApply={setApply} id={id}/>
         </div>
 
     </div>
