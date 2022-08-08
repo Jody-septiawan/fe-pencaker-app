@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { API } from '../../config/api';
 
 export default function InputJob({ inputShow, setInputShow }) {
-  let navigate = useNavigate();
   const [form, setForm] = useState({
     position: '',
     description: '',

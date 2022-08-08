@@ -1,10 +1,11 @@
-import React, {useState, useEffect, useContext, useNavigate} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { Row, Col, Form} from 'react-bootstrap';
 import '../../Styles/Styles.css'
 import { UserContext } from '../../context/userContext';
 import { useMutation, useQuery } from 'react-query';
 import Logo from '../../assets/blank-profile.png'
 import { API } from '../../config/api';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
     const [show, setShow] = useState(false)
