@@ -12,6 +12,7 @@ export default function AdminPage() {
     try {
         const response = await API.get('/transactions')
         setData(response.data.transactions)
+        setTotal(response.data.total)
     } catch (error) {
         console.log(error)
     }
@@ -26,7 +27,7 @@ export default function AdminPage() {
         <div className='ContainerContent mt-5'>
         <h4 style={{color: 'white'}}>Income Transaction</h4>
         <div className='d-flex mt-1'>
-        <p style={{color: 'rgba(146, 146, 146, 1)', marginRight: '5px'}}>Total:</p> <h4 style={{color: 'white'}}>Rp. 300.000.000</h4>
+        <p style={{color: 'rgba(146, 146, 146, 1)', marginRight: '5px'}}>Total:</p> <h4 style={{color: 'white'}}>{rupiahFormat.convert(total)}</h4>
         </div>
         {data?.map((item, index) => (
         <Card className='mb-2 bg-content' key={index}>

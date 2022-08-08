@@ -93,7 +93,7 @@ export default function Register({ registerShow, setRegisterShow, registerHere }
           if (error.message == 'Request failed with status code 400'){
             const alertPassword = (
               <Alert variant="danger" className="py-1">
-               Registered Email
+               Periksa kembali username, email, dan password
               </Alert>
             );     
             setMessage(alertPassword);

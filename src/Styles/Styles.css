@@ -139,6 +139,7 @@
     width: 100px;
     font-size: 10px;
     border-radius: 2px;
+    font-weight: bold;
 }
 
 .location p{
@@ -168,6 +169,7 @@
     width: 100px;
     background-color:  #B6B6B6;
     border-radius: 2px;
+    font-weight: bold;
 }
 
 .bg-Modal{
