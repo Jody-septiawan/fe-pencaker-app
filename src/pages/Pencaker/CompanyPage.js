@@ -6,12 +6,13 @@ import { useMutation, useQuery } from 'react-query';
 import '../../Styles/Styles.css'
 import { API } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
+import Apply from '../../commponent/Modal/Apply';
 
 export default function CompanyPage() {
     const [inputShow, setInputShow] = useState(false);
     const [data, setData] = useState()
-    const [state, dispatch] = useContext(UserContext);
-    console.log(state);
+    const [applyShow, setApply] = useState(false);
+
     let navigate = useNavigate();
 
     const myJobs = async () =>{
@@ -42,7 +43,7 @@ useEffect(() => {
     return () => {
       document.body.removeChild(scriptTag);
     };
-  }, [data])
+  }, [])
 
   const handleBuy = async (item) => {
     try {
@@ -99,7 +100,7 @@ useEffect(() => {
         <button className='postAJob' onClick={() => setInputShow(true)}>Post a job</button>
         {data?.map((item, index) => (
         <Card className='mb-2 bg-content' key={index}>
-        <Row className='Company-content'>
+        <Row className='Company-content' onClick={() => setApply(true)}>
                         <Row style={{marginLeft: '5px', marginBottom: '2px'}}>
                              <Col sm={6}  style={{marginTop: '10px', marginBottom: '10px'}}>
                                 <h4 style={{color: 'white'}}>{item.position}</h4>
@@ -108,6 +109,7 @@ useEffect(() => {
                             <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}}>
                                 <h4 style={{color: 'white'}}>{item.submitted}</h4>
                                 <p style={{color: 'rgba(108, 108, 108, 1)'}}>Submited</p>
+                                
                             </Col>
                             <Col sm={2}  style={{marginTop: '10px', marginBottom: '10px'}}>
                             <h4 style={{color: 'white', fontSize: '20px'}}>{item.duration}</h4>
@@ -123,6 +125,7 @@ useEffect(() => {
         </Card>
            ))}
         <InputJob inputShow={inputShow} setInputShow={setInputShow} />
+        <Apply applyShow={applyShow} setApply={setApply} setId={item.id}/>
         </div>
 
     </div>

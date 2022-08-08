@@ -4,6 +4,7 @@ import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import UserBlank from '../../assets/blank-profile.png'
 import { Link, useNavigate } from 'react-router-dom';
 import LogoutIcon from '../../assets/logout.svg'
+import logo from '../../assets/logo.png'
 
 export default function NavbarUser() {
     const [state, dispatch] = useContext(UserContext)
@@ -21,7 +22,7 @@ export default function NavbarUser() {
     <div>
            <Navbar variant="light" expand="lg" className='navbg'>
             <Container>
-            <Navbar.Brand  style={{color: 'white', fontWeight: 'bold'}} as={Link} to="/user"><img src='' style={{ maxWidth: '200px' }} alt="" />PENCAKER</Navbar.Brand>
+            <Navbar.Brand  style={{color: 'white', fontWeight: 'bold'}} as={Link} to="/user"><img src={logo} style={{ maxWidth: '150px' }} alt="" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav.Item style={{marginRight: '5px', color: 'white'}}>Welcome, {state.user.name}</Nav.Item>

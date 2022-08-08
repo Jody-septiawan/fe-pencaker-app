@@ -4,6 +4,7 @@ import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import UserBlank from '../../assets/blank-profile.png'
 import { Link, useNavigate } from 'react-router-dom';
 import LogoutIcon from '../../assets/logout.svg'
+import logo from '../../assets/logo.png'
 
 export default function NavbarAdmin() {
 
@@ -22,7 +23,7 @@ export default function NavbarAdmin() {
     <div>
            <Navbar variant="light" expand="lg" className='navbg'>
             <Container>
-            <Navbar.Brand  style={{color: 'white', fontWeight: 'bold'}} ><img src='' style={{ maxWidth: '200px' }} alt="" />PENCAKER</Navbar.Brand>
+            <Navbar.Brand style={{color: 'white', fontWeight: 'bold'}}><img src={logo} style={{ maxWidth: '150px' }} alt="" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav.Item style={{marginRight: '5px', color: 'white'}}>Welcome, Admin</Nav.Item>

@@ -11,6 +11,7 @@ import Register from '../../commponent/Modal/Register'
 import { API } from '../../config/api';
 import { useQuery } from 'react-query';
 import rupiahFormat from 'rupiah-format';
+import logo from '../../assets/logo.png'
 
 export default function LandingPage() {
     const [loginShow, setLoginShow] = useState(false);
@@ -66,7 +67,7 @@ useEffect(() => {
 
         <Navbar variant="light" expand="lg" className='navbg'>
         <Container>
-            <Navbar.Brand style={{color: 'white', fontWeight: 'bold'}}><img src="" style={{ maxWidth: '200px' }} alt="" />PENCAKER</Navbar.Brand>
+            <Navbar.Brand style={{color: 'white', fontWeight: 'bold'}}><img src={logo} style={{ maxWidth: '150px' }} alt="" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav className='groupnavmenu'>
