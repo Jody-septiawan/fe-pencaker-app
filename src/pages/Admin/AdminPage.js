@@ -8,7 +8,7 @@ export default function AdminPage() {
   const [data, setData] = useState()
   const [total, setTotal] = useState([])
 
-  const Transaction = async () =>{
+  const transaction = async () =>{
     try {
         const response = await API.get('/transactions')
         setData(response.data.transactions)
@@ -19,8 +19,8 @@ export default function AdminPage() {
     }
 
   useEffect(() => {
-    Transaction()
-  }, []);
+    transaction()
+  }, [data]);
 
   return (
     <div>
